@@ -56,7 +56,7 @@
           }
         ).addTo(mymap);
 
-        L.marker(latlng).addTo(mymap);
+        L.marker(latlng).addTo(mymap).bindPopup("Usted está aquí").openPopup();
       }
 
       function showError(error) {
