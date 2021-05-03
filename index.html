@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Parcel Sandbox</title>
+    <title>Geolocation JS</title>
     <meta charset="UTF-8" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Include Leaflet CSS file in the head section -->
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
+
     <link rel="stylesheet" href="./src/styles.css" />
+    <!-- Include Leaflet CSS file in the head section -->
     <script
       src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -18,14 +26,22 @@
   </head>
 
   <body>
-    <p>Click the button to get your coordinates.</p>
+    <nav>
+      <div class="nav-wrapper light-blue darken-2">
+        <a href="#!" class="brand-logo">
+          MiniGeoAppJS
+        </a>
+      </div>
+    </nav>
+    <div class="container center-align">
+      <p>Click the button to get your coordinates.</p>
 
-    <button onclick="getLocation()">Try It</button>
+      <button class="waves-effect waves-light btn" onclick="getLocation()">
+        Get Location
+      </button>
 
-    <p id="demo"></p>
-
-    <div id="mapholder"></div>
-
+      <div id="mapholder"></div>
+    </div>
     <script>
       var x = document.getElementById("demo");
 
@@ -36,7 +52,7 @@
           x.innerHTML = "Geolocation is not supported by this browser.";
         }
       }
-
+      // Displaying the Result in a Map
       function showPosition(position) {
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
@@ -56,7 +72,7 @@
           }
         ).addTo(mymap);
 
-        L.marker(latlng).addTo(mymap).bindPopup("Usted está aquí").openPopup();
+        L.marker(latlng).addTo(mymap).bindPopup("You are here").openPopup();
       }
 
       function showError(error) {
@@ -76,5 +92,7 @@
         }
       }
     </script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
